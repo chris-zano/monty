@@ -1,12 +1,5 @@
 #include "main.h"
 
-headers_t headers = {
-	OPC_RESET,
-	ARG_RESET,
-	FLAG_RESET,
-	FILE_RESET
-}
-
 /**
  * main - interpreter for monty 98 code
  *
@@ -17,6 +10,7 @@ headers_t headers = {
  */
 int main(int argc, char *argv[])
 {
+	headers = {OPC_RESET, ARG_RESET, FLAG_RESET, FILE_RESET}
 	FILE fd;
 	size_t size = 0;
 	ssize_t rbytes = 1;
@@ -62,7 +56,7 @@ cleanup:
  * @stack: head linked list - stack
  * @counter: line_counter
  * @file: poiner to monty file
- * @content: line content
+ * @args: line content
  *
  * Return: no return
 */

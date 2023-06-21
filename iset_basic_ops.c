@@ -3,7 +3,7 @@
 /**
  * m_push - adds a new node to the end of the stack
  *
- * @head: head pointer to the stack
+ * @h: head pointer to the stack
  * @ln: line number
  *
  * Return: void
@@ -16,7 +16,7 @@ void m_push(stack_t **h, unsigned int ln)
 /**
  * m_pall - prints all elements in a stack
  *
- * @head: head pointer to the stack
+ * @h: head pointer to the stack
  * @ln: line number
  *
  * Return: void
@@ -29,7 +29,7 @@ void m_pall(stack_t **h, unsigned int ln)
 /**
  * m_pint - prints the top element in a stack
  *
- * @head: head pointer to the stack
+ * @h: head pointer to the stack
  * @ln: line number
  *
  * Return: void
@@ -42,7 +42,7 @@ void m_pint(stack_t **h, unsigned int ln)
 /**
  * m_pop - removes an element from a stack
  *
- * @head: head pointer to the stack
+ * @h: head pointer to the stack
  * @ln: line number
  *
  * Return: void
@@ -55,7 +55,7 @@ void m_pop(stack_t **h, unsigned int ln)
 /**
  * m_swap - swaps elements in a stack
  *
- * @head: head pointer to the stack
+ * @h: head pointer to the stack
  * @ln: line number
  *
  * Return: void
