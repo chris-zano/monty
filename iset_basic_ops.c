@@ -103,6 +103,20 @@ void m_pint(stack_t **h, unsigned int ln)
  */
 void m_pop(stack_t **h, unsigned int ln)
 {
+	headers_t *headers = _headers();
+	stack_t *tmp;
+
+	if (*h == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", ln);
+		fclose(headers->file);
+		free(headers->args);
+		free_stack(*h);
+		exit(EXIT_FAILURE);
+	}
+	tmp = *h;
+	*h = tmp->next;
+	free(tmp);
 	printf("pop -> m_pop has been called\n");
 }
 
