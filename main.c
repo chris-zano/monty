@@ -1,5 +1,4 @@
 #include "main.h"
-headers_t headers = {NULL, NULL, 0, NULL};
 
 /**
  * main - interpreter for monty 98 code
@@ -16,7 +15,8 @@ int main(int argc, char *argv[])
 	ssize_t rbytes = 1;
 	stack_t *stack = NULL;
 	unsigned int i = 0;
-	char *args = NULL;
+	char *args;
+	headers_t headers = _headers();
 
 	if (argc != 2)
 	{
@@ -32,11 +32,12 @@ int main(int argc, char *argv[])
 	}
 	while (rbytes > 0)
 	{
-		rbytes = _getline(&args, &size, fd);
+		args = NULL;
+		rbytes = getline(&args, &size, fd);
 		headers.args = args;
 		i++;
 		if (rbytes > 0)
-			iset_opcall(args, &stack, i, fd);
+			iset_opcall(args, &stack, i, fd, headers);
 		free(args);
 	}
 	f_stack(stack);
@@ -51,10 +52,12 @@ int main(int argc, char *argv[])
  * @counter: line_counter
  * @file: poiner to monty file
  * @args: line content
+ * @headers: headers structure
  *
  * Return: no return
 */
-int iset_opcall(char *args, stack_t **stack, unsigned int counter, FILE *file)
+headers_t iset_opcall(char *args, stack_t **stack, unsigned int counter,
+		FILE *file, headers_t headers)
 {
 	unsigned int i = 0;
 	char *opcode;
@@ -69,13 +72,13 @@ int iset_opcall(char *args, stack_t **stack, unsigned int counter, FILE *file)
 
 	opcode = strtok(args, " \n\t");
 	if (opcode && opcode[0] == '#')
-		return (0);
+		return (headers);
 	headers.opcode = strtok(NULL, " \n\t");
 	while (opcodes[i].opcode && opcode)
 	{
 		if (strcmp(opcode, opcodes[i].opcode) == 0)
 		{	opcodes[i].f(stack, counter);
-			return (0);
+			return (headers);
 		}
 		i++;
 	}
@@ -87,7 +90,7 @@ int iset_opcall(char *args, stack_t **stack, unsigned int counter, FILE *file)
 		f_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
-	return (1);
+	return (headers);
 }
 
 /**

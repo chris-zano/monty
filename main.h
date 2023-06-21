@@ -2,7 +2,7 @@
 #define MAIN_H
 
 /* INCLUDE STATEMENTS GO HERE */
-
+#define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
@@ -67,16 +67,16 @@ typedef struct headers_s
 	int flag;
 	FILE *file;
 } headers_t;
-
-/* GLOBAL VARIABLE ( EXTERN DECLARATIONS ) */
 extern headers_t headers;
 
 /* FUNCTION DECLARATIONS GO HERE */
 
 /* "m" stands for monty - m_push >> monty_push */
 /* "f" stands for free - f_stack >> free_stack */
-ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
-int iset_opcall(char *args, stack_t **stack, unsigned int counter, FILE *file);
+
+headers_t _headers(void);
+headers_t iset_opcall(char *args, stack_t **stack, unsigned int counter,
+		FILE *file, headers_t headers);
 void f_stack(stack_t *stack);
 void m_push(stack_t **h, unsigned int ln);
 void m_pall(stack_t **h, unsigned int ln);
