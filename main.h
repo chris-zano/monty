@@ -95,6 +95,7 @@ void m_rotl(stack_t **h, unsigned int ln);
 void m_rotr(stack_t **h);
 void m_queue(stack_t **h, unsigned int ln);
 void m_stack(stack_t **h, unsigned int ln);
-
+void m_addnode(stack_t **h, int n);
+void m_addqueue(stack_t **h, int n);
 
 #endif /* MAIN_H */
