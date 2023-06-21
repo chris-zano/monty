@@ -86,7 +86,7 @@ void m_pint(stack_t **h, unsigned int ln)
 		fprintf(stderr, "L%u: can't pint, stack empty\n", ln);
 		fclose(headers->file);
 		free(headers->args);
-		free_stack(*h);
+		f_stack(*h);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*h)->n);
@@ -111,7 +111,7 @@ void m_pop(stack_t **h, unsigned int ln)
 		fprintf(stderr, "L%d: can't pop an empty stack\n", ln);
 		fclose(headers->file);
 		free(headers->args);
-		free_stack(*h);
+		f_stack(*h);
 		exit(EXIT_FAILURE);
 	}
 	tmp = *h;
@@ -145,7 +145,7 @@ void m_swap(stack_t **h, unsigned int ln)
 		fprintf(stderr, "L%d: can't swap, stack too short\n", ln);
 		fclose(headers->file);
 		free(headers->args);
-		free_stack(*h);
+		f_stack(*h);
 		exit(EXIT_FAILURE);
 	}
 	tmp = *h;

@@ -72,7 +72,7 @@ extern headers_t headers;
 /* FUNCTION DECLARATIONS GO HERE */
 
 /* "m" stands for monty - m_push >> monty_push */
-/* "f" stands for free - f_stack >> free_stack */
+/* "f" stands for free - f_stack >> f_stack */
 
 headers_t *_headers(void);
 int iset_opcall(char *args, stack_t **stack, unsigned int counter,
