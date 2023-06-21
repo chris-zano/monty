@@ -130,5 +130,27 @@ void m_pop(stack_t **h, unsigned int ln)
  */
 void m_swap(stack_t **h, unsigned int ln)
 {
+	headers_t *headers = _headers();
+	stack_t *tmp;
+	int len = 0, i;
+
+	tmp = *h;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		len++;
+	}
+	if (len < 2)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", ln);
+		fclose(headers->file);
+		free(headers->args);
+		free_stack(*h);
+		exit(EXIT_FAILURE);
+	}
+	tmp = *h;
+	i = tmp->n;
+	tmp->n = tmp->next->n;
+	tmp->next->n = i;
 	printf("swap -> m_swap has been called\n");
 }
