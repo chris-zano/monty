@@ -58,7 +58,7 @@ void m_sub(stack_t **h, unsigned int ln)
 		fprintf(stderr, "L%d: can't sub, stack too short\n", ln);
 		fclose(headers->file);
 		free(headers->args);
-		free_stack(*h);
+		f_stack(*h);
 		exit(EXIT_FAILURE);
 	}
 	tmp = *h;
@@ -91,19 +91,19 @@ void m_div(stack_t **h, unsigned int ln)
 	}
 	if (len < 2)
 	{
-		fprintf(stderr, "L%d: can't div, stack too short\n", counter);
+		fprintf(stderr, "L%d: can't div, stack too short\n", ln);
 		fclose(headers->file);
 		free(headers->args);
-		free_stack(*h);
+		f_stack(*h);
 		exit(EXIT_FAILURE);
 	}
 	tmp = *h;
 	if (tmp->n == 0)
 	{
-		fprintf(stderr, "L%d: division by zero\n", counter);
+		fprintf(stderr, "L%d: division by zero\n", ln);
 		fclose(headers->file);
 		free(headers->args);
-		free_stack(*h);
+		f_stack(*h);
 		exit(EXIT_FAILURE);
 	}
 	i = tmp->next->n / tmp->n;
@@ -124,6 +124,28 @@ void m_div(stack_t **h, unsigned int ln)
 void m_mul(stack_t **h, unsigned int ln)
 {
 	headers_t *headers = _headers();
+	stack_t *tmp;
+	int len = 0, i;
+
+	tmp = *h;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		len++;
+	}
+	if (len < 2)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", ln);
+		fclose(headers->file);
+		free(headers->args);
+		f_stack(*h);
+		exit(EXIT_FAILURE);
+	}
+	tmp = *h;
+	i = tmp->next->n * tmp->n;
+	tmp->next->n = i;
+	*h = tmp->next;
+	free(tmp);
 	printf("mul -> m_mul has been called\n");
 }
 
@@ -138,5 +160,35 @@ void m_mul(stack_t **h, unsigned int ln)
 void m_mod(stack_t **h, unsigned int ln)
 {
 	headers_t *headers = _headers();
+	stack_t *tmp;
+	int len = 0, i;
+
+	tmp = *h;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		len++;
+	}
+	if (len < 2)
+	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", ln);
+		fclose(headers->file);
+		free(headers->args);
+		free_stack(*h);
+		exit(EXIT_FAILURE);
+	}
+	tmp = *h;
+	if (tmp->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", ln);
+		fclose(headers->file);
+		free(headers->args);
+		free_stack(*h);
+		exit(EXIT_FAILURE);
+	}
+	i = tmp->next->n % tmp->n;
+	tmp->next->n = i;
+	*h = tmp->next;
+	free(tmp);
 	printf("mod -> m_mod has been called\n");
 }
