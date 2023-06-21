@@ -72,8 +72,12 @@ typedef struct headers_s
 extern headers_t headers;
 
 /* FUNCTION DECLARATIONS GO HERE */
+
+/* "m" stands for monty - m_push >> monty_push */
+/* "f" stands for free - f_stack >> free_stack */
+
 int execute(char *args, stack_t **stack, unsigned int counter, FILE *file);
-void m_stack(stack_t *stack);
+void f_stack(stack_t *stack);
 void m_push(stack_t **h, unsigned int ln);
 void m_pall(stack_t **h, unsigned int ln);
 void m_pint(stack_t **h, unsigned int ln);
@@ -89,6 +93,8 @@ void m_pchar(stack_t **h, unsigned int ln);
 void m_pstr(stack_t **h, unsigned int ln);
 void m_rotl(stack_t **h, unsigned int ln);
 void m_rotr(stack_t **h);
+void m_queue(stack_t **h, unsigned int ln);
+void m_stack(stack_t **h, unsigned int ln);
 
 
 #endif /* MAIN_H */
