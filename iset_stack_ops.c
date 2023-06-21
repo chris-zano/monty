@@ -43,10 +43,10 @@ void m_rotl(stack_t **h, unsigned int ln)
  * m_rotr - rotate the stack to the bottom
  *
  * @h: head pointer to the stack
- *
+ * @ln: line number
  * Return: void
 */
-void m_rotr(stack_t **h)
+void m_rotr(stack_t **h, __attribute__((unused)) unsigned int ln)
 {
 	printf("rotr -> m_rotr has been called");
 }

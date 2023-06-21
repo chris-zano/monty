@@ -75,8 +75,8 @@ extern headers_t headers;
 
 /* "m" stands for monty - m_push >> monty_push */
 /* "f" stands for free - f_stack >> free_stack */
-
-int execute(char *args, stack_t **stack, unsigned int counter, FILE *file);
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
+int iset_opcall(char *args, stack_t **stack, unsigned int counter, FILE *file);
 void f_stack(stack_t *stack);
 void m_push(stack_t **h, unsigned int ln);
 void m_pall(stack_t **h, unsigned int ln);
@@ -92,7 +92,7 @@ void m_mod(stack_t **h, unsigned int ln);
 void m_pchar(stack_t **h, unsigned int ln);
 void m_pstr(stack_t **h, unsigned int ln);
 void m_rotl(stack_t **h, unsigned int ln);
-void m_rotr(stack_t **h);
+void m_rotr(stack_t **h, __attribute__((unused)) unsigned int ln);
 void m_queue(stack_t **h, unsigned int ln);
 void m_stack(stack_t **h, unsigned int ln);
 void m_addnode(stack_t **h, int n);
