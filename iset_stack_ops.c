@@ -19,7 +19,7 @@ void m_pchar(stack_t **h, unsigned int ln)
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", ln);
 		fclose(headers->file);
 		free(headers->args);
-		free_stack(*h);
+		f_stack(*h);
 		exit(EXIT_FAILURE);
 	}
 	if (tmp->n > 127 || tmp->n < 0)
@@ -27,7 +27,7 @@ void m_pchar(stack_t **h, unsigned int ln)
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", ln);
 		fclose(headers->file);
 		free(headers->args);
-		free_stack(*h);
+		f_stack(*h);
 		exit(EXIT_FAILURE);
 	}
 	printf("%c\n", tmp->n);
@@ -44,7 +44,6 @@ void m_pchar(stack_t **h, unsigned int ln)
 */
 void m_pstr(stack_t **h, unsigned int ln)
 {
-	headers_t *headers = _headers();
 	stack_t *tmp;
 	(void)ln;
 
@@ -70,9 +69,8 @@ void m_pstr(stack_t **h, unsigned int ln)
  *
  * Return: void
 */
-void m_rotl(stack_t **h, unsigned int ln)
+void m_rotl(stack_t **h, __attribute__((unused)) unsigned int ln)
 {
-	headers_t *headers = _headers();
 	stack_t *tmp = *h, *fast;
 
 	if (*h == NULL || (*h)->next == NULL)
@@ -101,7 +99,6 @@ void m_rotl(stack_t **h, unsigned int ln)
 */
 void m_rotr(stack_t **h, __attribute__((unused)) unsigned int ln)
 {
-	headers_t *headers = _headers();
 	stack_t *tmp;
 
 	tmp = *h;

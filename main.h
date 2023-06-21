@@ -91,7 +91,7 @@ void m_mul(stack_t **h, unsigned int ln);
 void m_mod(stack_t **h, unsigned int ln);
 void m_pchar(stack_t **h, unsigned int ln);
 void m_pstr(stack_t **h, unsigned int ln);
-void m_rotl(stack_t **h, unsigned int ln);
+void m_rotl(stack_t **h, __attribute__((unused)) unsigned int ln);
 void m_rotr(stack_t **h, __attribute__((unused)) unsigned int ln);
 void m_queue(stack_t **h, unsigned int ln);
 void m_stack(stack_t **h, unsigned int ln);

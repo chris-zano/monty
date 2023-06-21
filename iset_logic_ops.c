@@ -39,7 +39,7 @@ void m_add(stack_t **h, unsigned int ln)
 /**
  * m_sub - subtracts the first two items in a stack
  *
- * @tmp: h pointer to the stack
+ * @h: h pointer to the stack
  * @ln: line number
  *
  * Return: void
@@ -174,7 +174,7 @@ void m_mod(stack_t **h, unsigned int ln)
 		fprintf(stderr, "L%d: can't mod, stack too short\n", ln);
 		fclose(headers->file);
 		free(headers->args);
-		free_stack(*h);
+		f_stack(*h);
 		exit(EXIT_FAILURE);
 	}
 	tmp = *h;
@@ -183,7 +183,7 @@ void m_mod(stack_t **h, unsigned int ln)
 		fprintf(stderr, "L%d: division by zero\n", ln);
 		fclose(headers->file);
 		free(headers->args);
-		free_stack(*h);
+		f_stack(*h);
 		exit(EXIT_FAILURE);
 	}
 	i = tmp->next->n % tmp->n;
