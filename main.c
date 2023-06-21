@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 	unsigned int i = 0;
 	char *args;
-	headers_t headers = _headers();
+	headers_t *headers = _headers();
 
 	if (argc != 2)
 	{
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	fd = fopen(argv[1], "r");
-	headers.file = fd;
+	headers->file = fd;
 	if (!fd)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 	{
 		args = NULL;
 		rbytes = getline(&args, &size, fd);
-		headers.args = args;
+		headers->args = args;
 		i++;
 		if (rbytes > 0)
 			iset_opcall(args, &stack, i, fd, headers);
@@ -56,8 +56,8 @@ int main(int argc, char *argv[])
  *
  * Return: no return
 */
-headers_t iset_opcall(char *args, stack_t **stack, unsigned int counter,
-		FILE *file, headers_t headers)
+int iset_opcall(char *args, stack_t **stack, unsigned int counter,
+		FILE *file, headers_t *headers)
 {
 	unsigned int i = 0;
 	char *opcode;
@@ -72,13 +72,13 @@ headers_t iset_opcall(char *args, stack_t **stack, unsigned int counter,
 
 	opcode = strtok(args, " \n\t");
 	if (opcode && opcode[0] == '#')
-		return (headers);
-	headers.opcode = strtok(NULL, " \n\t");
+		return (0);
+	headers->opcode = strtok(NULL, " \n\t");
 	while (opcodes[i].opcode && opcode)
 	{
 		if (strcmp(opcode, opcodes[i].opcode) == 0)
 		{	opcodes[i].f(stack, counter);
-			return (headers);
+			return (0);
 		}
 		i++;
 	}
@@ -90,7 +90,7 @@ headers_t iset_opcall(char *args, stack_t **stack, unsigned int counter,
 		f_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
-	return (headers);
+	return (1);
 }
 
 /**

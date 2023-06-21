@@ -10,7 +10,7 @@
 */
 void m_queue(stack_t **h, unsigned int ln)
 {
-	printf("queue -> m_queue has been called");
+	printf("queue -> m_queue has been called\n");
 }
 
 /**
@@ -23,5 +23,5 @@ void m_queue(stack_t **h, unsigned int ln)
 */
 void m_stack(stack_t **h, unsigned int ln)
 {
-	printf("stack -> m_stack has been called");
+	printf("stack -> m_stack has been called\n");
 }

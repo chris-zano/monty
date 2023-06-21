@@ -10,7 +10,7 @@
 */
 void m_pchar(stack_t **h, unsigned int ln)
 {
-	printf("pchar -> m_pchar has been called");
+	printf("pchar -> m_pchar has been called\n");
 }
 
 /**
@@ -23,7 +23,7 @@ void m_pchar(stack_t **h, unsigned int ln)
 */
 void m_pstr(stack_t **h, unsigned int ln)
 {
-	printf("pstr -> m_pstr has been called");
+	printf("pstr -> m_pstr has been called\n");
 }
 
 /**
@@ -36,7 +36,7 @@ void m_pstr(stack_t **h, unsigned int ln)
 */
 void m_rotl(stack_t **h, unsigned int ln)
 {
-	printf("rotl -> m_rotl has been called");
+	printf("rotl -> m_rotl has been called\n");
 }
 
 /**
@@ -48,7 +48,7 @@ void m_rotl(stack_t **h, unsigned int ln)
 */
 void m_rotr(stack_t **h, __attribute__((unused)) unsigned int ln)
 {
-	printf("rotr -> m_rotr has been called");
+	printf("rotr -> m_rotr has been called\n");
 }
 
 /**
@@ -61,5 +61,5 @@ void m_rotr(stack_t **h, __attribute__((unused)) unsigned int ln)
 */
 void m_nop(stack_t **h, unsigned int ln)
 {
-	printf("nop -> m_nop has been called");
+	printf("nop -> m_nop has been called\n");
 }

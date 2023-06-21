@@ -74,9 +74,9 @@ extern headers_t headers;
 /* "m" stands for monty - m_push >> monty_push */
 /* "f" stands for free - f_stack >> free_stack */
 
-headers_t _headers(void);
-headers_t iset_opcall(char *args, stack_t **stack, unsigned int counter,
-		FILE *file, headers_t headers);
+headers_t *_headers(void);
+int iset_opcall(char *args, stack_t **stack, unsigned int counter,
+		FILE *file, headers_t *headers);
 void f_stack(stack_t *stack);
 void m_push(stack_t **h, unsigned int ln);
 void m_pall(stack_t **h, unsigned int ln);
