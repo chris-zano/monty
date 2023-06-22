@@ -42,7 +42,6 @@ void m_push(stack_t **h, unsigned int ln)
 		m_addnode(h, n);
 	else
 		m_addqueue(h, n);
-	printf("push -> m_push has been called\n");
 }
 
 /**
@@ -66,7 +65,6 @@ void m_pall(stack_t **h, unsigned int ln)
 		printf("%d\n", tmp->n);
 		tmp = tmp->next;
 	}
-	printf("pall -> m_pall has been called\n");
 }
 
 /**
@@ -90,7 +88,6 @@ void m_pint(stack_t **h, unsigned int ln)
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*h)->n);
-	printf("pint -> m_pint has been called\n");
 }
 
 /**
@@ -117,7 +114,6 @@ void m_pop(stack_t **h, unsigned int ln)
 	tmp = *h;
 	*h = tmp->next;
 	free(tmp);
-	printf("pop -> m_pop has been called\n");
 }
 
 /**
@@ -152,5 +148,4 @@ void m_swap(stack_t **h, unsigned int ln)
 	i = tmp->n;
 	tmp->n = tmp->next->n;
 	tmp->next->n = i;
-	printf("swap -> m_swap has been called\n");
 }

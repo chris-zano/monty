@@ -14,7 +14,6 @@ void m_queue(stack_t **h, unsigned int ln)
 	(void)h;
 	(void)ln;
 	headers->flag = 1;
-	printf("queue -> m_queue has been called\n");
 }
 
 /**
@@ -31,5 +30,4 @@ void m_stack(stack_t **h, unsigned int ln)
 	(void)h;
 	(void)ln;
 	headers->flag = 0;
-	printf("stack -> m_stack has been called\n");
 }

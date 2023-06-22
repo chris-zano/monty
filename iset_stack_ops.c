@@ -31,7 +31,6 @@ void m_pchar(stack_t **h, unsigned int ln)
 		exit(EXIT_FAILURE);
 	}
 	printf("%c\n", tmp->n);
-	printf("pchar -> m_pchar has been called\n");
 }
 
 /**
@@ -58,7 +57,6 @@ void m_pstr(stack_t **h, unsigned int ln)
 		tmp = tmp->next;
 	}
 	printf("\n");
-	printf("pstr -> m_pstr has been called\n");
 }
 
 /**
@@ -87,7 +85,6 @@ void m_rotl(stack_t **h, __attribute__((unused)) unsigned int ln)
 	(*h)->next = NULL;
 	(*h)->prev = tmp;
 	(*h) = fast;
-	printf("rotl -> m_rotl has been called\n");
 }
 
 /**
@@ -115,7 +112,6 @@ void m_rotr(stack_t **h, __attribute__((unused)) unsigned int ln)
 	tmp->prev = NULL;
 	(*h)->prev = tmp;
 	(*h) = tmp;
-	printf("rotr -> m_rotr has been called\n");
 }
 
 /**
@@ -130,5 +126,4 @@ void m_nop(stack_t **h, unsigned int ln)
 {
 	(void) ln;
 	(void) h;
-	printf("nop -> m_nop has been called\n");
 }

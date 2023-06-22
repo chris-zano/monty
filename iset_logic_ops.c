@@ -33,7 +33,6 @@ void m_add(stack_t **h, unsigned int ln)
 	tmp->next->n = i;
 	*h = tmp->next;
 	free(tmp);
-	printf("add -> m_add has been called\n");
 }
 
 /**
@@ -66,7 +65,6 @@ void m_sub(stack_t **h, unsigned int ln)
 	tmp->next->n = j;
 	*h = tmp->next;
 	free(tmp);
-	printf("sub -> m_sub has been called\n");
 }
 
 /**
@@ -110,7 +108,6 @@ void m_div(stack_t **h, unsigned int ln)
 	tmp->next->n = i;
 	*h = tmp->next;
 	free(tmp);
-	printf("div -> m_div has been called\n");
 }
 
 /**
@@ -146,7 +143,6 @@ void m_mul(stack_t **h, unsigned int ln)
 	tmp->next->n = i;
 	*h = tmp->next;
 	free(tmp);
-	printf("mul -> m_mul has been called\n");
 }
 
 /**
@@ -190,5 +186,4 @@ void m_mod(stack_t **h, unsigned int ln)
 	tmp->next->n = i;
 	*h = tmp->next;
 	free(tmp);
-	printf("mod -> m_mod has been called\n");
 }
