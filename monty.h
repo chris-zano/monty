@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MONTY_H
+#define MONTY_H
 
 /* INCLUDE STATEMENTS GO HERE */
 #define _POSIX_C_SOURCE 200809L
@@ -98,4 +98,4 @@ void m_stack(stack_t **h, unsigned int ln);
 void m_addnode(stack_t **h, int n);
 void m_addqueue(stack_t **h, int n);
 
-#endif /* MAIN_H */
+#endif /* MONTY_H */

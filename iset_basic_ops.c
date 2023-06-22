@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * m_push - adds a new node to the end of the stack
